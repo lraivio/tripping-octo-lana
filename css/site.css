@@ -1,0 +1,66 @@
+body {
+    padding: 30px 0;
+}
+
+.row + .row {
+    margin-top: 30px;
+}
+
+.panel {
+    margin-bottom: 0
+}
+
+.status-row .panel {
+    height: 250px;
+}
+
+.status-sauna .progress {
+    margin-top: 10px;
+}
+
+.lights {
+    font-size: 15px;
+}
+
+.lights .label {
+    float: right;
+}
+
+.log .panel-body {
+    position: relative;
+    height: 200px;
+    overflow: scroll;
+}
+
+.log ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.log ul > li {
+    margin-bottom: 10px;
+}
+
+.log time {
+    display: inline-block;
+    width: 80px;
+}
+
+.log .info {
+    padding-left: 84px;
+    font-style: italic;
+    font-size: 12px;
+}
+
+/*textarea.log {
+    width: 100%;
+    padding: 10px 20px;
+}*/
+
+.command-line {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 15px;
+    line-height: 22px;
+}

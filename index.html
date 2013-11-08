@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Command line interface</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/site.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -14,7 +16,122 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Command line interface basic template</h1>
+    <div class="container">
+      <div class="row status-row">
+        <div class="col-md-4">
+          <div class="panel panel-default status-sauna">
+            <div class="panel-heading">
+              <h2 class="panel-title">Sauna</h2>
+            </div>
+            <div class="panel-body">
+              <span class="label label-success">ON</span>
+              <div class="progress progress-striped active">
+                <div class="progress-bar"  role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                  <span class="sr-only">70% Complete</span>
+                </div>
+              </div>
+              <p>Ready in 11 minutes</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="panel panel-default status-lights">
+            <div class="panel-heading">
+              <h2 class="panel-title">Lights</h2>
+            </div>
+            <div class="panel-body">
+              <ul class="lights">
+                <li class="bedroom">
+                  Bedroom
+                  <span class="label label-danger">OFF</span>
+                </li>
+                <li class="kitchen">
+                  Kitchen
+                  <span class="label label-success">ON</span>
+                </li>
+                <li class="living-room">
+                  Living room
+                  <span class="label label-danger">OFF</span>
+                </li>
+                <li class="bathroom">
+                  Bathroom
+                  <span class="label label-danger">OFF</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">Appliances</h2>
+            </div>
+            <div class="panel-body">
+              <ul class="appliances">
+                <li class="oven">Oven</li>
+                <li class="mocca-master">Mocca master</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default log">
+            <div class="panel-heading">
+              <h2 class="panel-title">Log</h2>
+            </div>
+            <div class="panel-body">
+              <ul class="log-entries">
+                <li>
+                  <div class="line">
+                    <time>18:57:25</time>
+                    <strong class="command">sauna on 80</strong>
+                  </div>
+                  <div class="line info">
+                    Sauna was turned on. Target temperature was set to 80 degrees. Warming the sauna takes approximately 45 minutes.
+                  </div>
+                </li>
+
+                <li>
+                  <div class="line">
+                    <time>18:57:46</time>
+                    <strong class="command">lights off</strong>
+                  </div>
+                  <div class="line info">
+                    All lights were turned off.
+                  </div>
+                </li>
+
+                <li>
+                  <div class="line">
+                    <time>18:58:11</time>
+                    <strong class="command">lights on kitchen</strong>
+                  </div>
+                  <div class="line info">
+                    The kitchen ligth was turned on.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- <textarea name="log" id="log" class="log" cols="30" rows="10">Log
+            18:57 - sauna on 80
+            Turned sauna on to 80 degrees.
+          </textarea> -->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <input type="text" class="command-line">
+        </div>
+      </div>
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
