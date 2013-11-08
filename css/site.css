@@ -14,9 +14,15 @@ body {
     height: 250px;
 }
 
+
+/* -- Sauna -- */
+
 .status-sauna .progress {
     margin-top: 10px;
 }
+
+
+/* -- Lights -- */
 
 .lights {
     font-size: 15px;
@@ -25,6 +31,9 @@ body {
 .lights .label {
     float: right;
 }
+
+
+/* -- Log -- */
 
 .log .panel-body {
     position: relative;
@@ -57,6 +66,9 @@ body {
     width: 100%;
     padding: 10px 20px;
 }*/
+
+
+/* -- Command line -- */
 
 .command-line {
     width: 100%;
