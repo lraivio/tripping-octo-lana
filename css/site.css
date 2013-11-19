@@ -80,3 +80,10 @@ body {
     height: 50px;
     padding: 10px 20px;
 }
+.help {
+  font-size: 17px;
+  position: absolute;
+  right: 30px;
+  top: 12px;
+  color: #888;
+}

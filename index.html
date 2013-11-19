@@ -31,6 +31,7 @@
             <div class="panel-body">
               <span class="label label-danger" data-bind="visible: !active()" style="display: none">OFF</span>
               <span class="label label-success" data-bind="visible: active" style="display: none">ON</span>
+              <span style="float: right" data-bind="visible: active">Temperature set to <span data-bind="text: temperatureTarget"></span> C</span>
               <div class="progress progress-striped active" data-bind="visible: active">
                 <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" data-bind="attr: {'aria-valuenow': progress}, style: {width: progress() + '%'}">
                   <span class="sr-only" data-bind="text: progress() + '% complete'"></span>
@@ -68,7 +69,7 @@
                 <li class="bathroom">
                   Bathroom
                   <span class="label label-danger" data-bind="visible: !bathroom()" style="display: none">OFF</span>
-                  <span class="label label-danger" data-bind="visible: bathroom" style="display: none">ON</span>
+                  <span class="label label-success" data-bind="visible: bathroom" style="display: none">ON</span>
                 </li>
               </ul>
             </div>
@@ -77,14 +78,22 @@
 
         <!-- Appliances status box -->
         <div class="col-md-4">
-          <div class="panel panel-default">
+          <div class="panel panel-default status-lights">
             <div class="panel-heading">
               <h2 class="panel-title">Appliances</h2>
             </div>
             <div class="panel-body">
-              <ul class="appliances">
-                <li class="oven">Oven</li>
-                <li class="mocca-master">Mocca master</li>
+              <ul class="lights" data-bind="with: appliances">
+                <li class="oven">
+                  Oven
+                  <span class="label label-danger" data-bind="visible: !oven()" style="display: none">OFF</span>
+                  <span class="label label-success" data-bind="visible: oven" style="display: none">ON</span>
+                </li>
+                <li class="mocca-master">
+                  Mocca master
+                  <span class="label label-danger" data-bind="visible: !moccamaster()" style="display: none">OFF</span>
+                  <span class="label label-success" data-bind="visible: moccamaster" style="display: none">ON</span>
+                </li>
               </ul>
             </div>
           </div>
@@ -105,7 +114,7 @@
                     <time data-bind="text: timeStamp"></time>
                     <strong class="command" data-bind="text: command"></strong>
                   </div>
-                  <div class="line info" data-bind="text: reply"></div>
+                  <div class="line info" data-bind="html: reply"></div>
                 </li>
                 <!--<li>
                   <div class="line">
@@ -152,7 +161,8 @@
         <div class="col-md-12">
           <form data-bind="submit: command">
             <input type="text" id="command-line" class="command-line" placeholder="command line" data-bind="value: commandText" />
-            <input type="submit" style="display: none"/>
+            <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+            <span class="help">Type 'help' for instructions</span>
           </form>
         </div>
       </div>
