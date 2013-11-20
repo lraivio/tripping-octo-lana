@@ -18,12 +18,38 @@
   </head>
   <body>
     <div class="container">
+      <div class="row">
+        <!-- Main Screen -->
+        <div class="col-md-9">
+          <!-- Log -->
+          <div class="panel panel-default log" data-bind="with: log">
+            <div class="panel-heading">
+              <h2 class="panel-title">Log</h2>
+            </div>
+            <div class="panel-body">
+              <ul class="log-entries" data-bind="foreach: messages().slice(0).reverse()">
+                <li>
+                  <div class="line">
+                    <time data-bind="text: timeStamp"></time>
+                    <strong class="command" data-bind="text: command"></strong>
+                  </div>
+                  <div class="line info" data-bind="html: reply"></div>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-      <!-- Status boxes -->
-      <div class="row status-row" data-bind="with: state">
+          <!-- Command line -->
+          <form class="command-line-form" data-bind="submit: command">
+            <input type="text" id="command-line" class="command-line" placeholder="command line" data-bind="value: commandText" />
+            <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+            <span class="help">Type 'help' for instructions</span>
+          </form>
+        </div>
 
-        <!-- Sauna status box -->
-        <div class="col-md-4">
+        <!-- Status boxes -->
+        <div class="col-md-3" data-bind="with: state">
+          <!-- Sauna status box -->
           <div class="panel panel-default status-sauna" data-bind="with: sauna">
             <div class="panel-heading">
               <h2 class="panel-title">Sauna</h2>
@@ -41,10 +67,8 @@
               <p data-bind="visible: active() && timeWarmed() == warmUpTime">Sauna is ready!</p>
             </div>
           </div>
-        </div>
 
-        <!-- Lights status box -->
-        <div class="col-md-4">
+          <!-- Lights status box -->
           <div class="panel panel-default status-lights">
             <div class="panel-heading">
               <h2 class="panel-title">Lights</h2>
@@ -74,10 +98,8 @@
               </ul>
             </div>
           </div>
-        </div>
 
-        <!-- Appliances status box -->
-        <div class="col-md-4">
+          <!-- Appliances status box -->
           <div class="panel panel-default status-lights">
             <div class="panel-heading">
               <h2 class="panel-title">Appliances</h2>
@@ -97,73 +119,6 @@
               </ul>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Log -->
-      <div class="row">
-        <div class="col-md-12">
-          <div class="panel panel-default log" data-bind="with: log">
-            <div class="panel-heading">
-              <h2 class="panel-title">Log</h2>
-            </div>
-            <div class="panel-body">
-              <ul class="log-entries" data-bind="foreach: messages().slice(0).reverse()">
-                <li>
-                  <div class="line">
-                    <time data-bind="text: timeStamp"></time>
-                    <strong class="command" data-bind="text: command"></strong>
-                  </div>
-                  <div class="line info" data-bind="html: reply"></div>
-                </li>
-                <!--<li>
-                  <div class="line">
-                    <time>18:57:25</time>
-                    <strong class="command">sauna on 80</strong>
-                  </div>
-                  <div class="line info">
-                    Sauna was turned on. Target temperature was set to 80 degrees. Warming the sauna takes approximately 45 minutes.
-                  </div>
-                </li>
-
-                <li>
-                  <div class="line">
-                    <time>18:57:46</time>
-                    <strong class="command">lights off</strong>
-                  </div>
-                  <div class="line info">
-                    All lights were turned off.
-                  </div>
-                </li>
-
-                <li>
-                  <div class="line">
-                    <time>18:58:11</time>
-                    <strong class="command">lights on kitchen</strong>
-                  </div>
-                  <div class="line info">
-                    The kitchen ligth was turned on.
-                  </div>
-                </li>-->
-              </ul>
-            </div>
-          </div>
-
-          <!-- <textarea name="log" id="log" class="log" cols="30" rows="10">Log
-            18:57 - sauna on 80
-            Turned sauna on to 80 degrees.
-          </textarea> -->
-        </div>
-      </div>
-
-      <!-- Command line -->
-      <div class="row">
-        <div class="col-md-12">
-          <form data-bind="submit: command">
-            <input type="text" id="command-line" class="command-line" placeholder="command line" data-bind="value: commandText" />
-            <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
-            <span class="help">Type 'help' for instructions</span>
-          </form>
         </div>
       </div>
     </div>
