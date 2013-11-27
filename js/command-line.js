@@ -180,7 +180,8 @@ function CLIViewModel() {
     } else if(commandString == "help") {
       self.log.addMessage("help", "Instructions:<br/><b>sauna on [temperature]</b> - turn sauna on. Temperature is optional, default 80 C<br/><b>sauna off</b> - turn sauna off<br/>"
                                 + "<b>lights on [room]</b> - turn lights on. Room is optional, e.g. 'lights on kitchen' will turn on kitchen lights only<br/>"
-                                + "<b>lights off [room]</b> - turn lights off.<br/><b>leave</b> - Leave the apartment and turn off all lights and devices");
+                                + "<b>lights off [room]</b> - turn lights off.<br/><b>leave</b> - Leave the apartment and turn off all lights and devices<br/>"
+                                + "<b>cancel</b> - Cancel previous command");
     
     }
     self.cancelCommand = fullCommand;
