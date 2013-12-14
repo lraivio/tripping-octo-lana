@@ -1,0 +1,50 @@
+﻿body {
+    width: 97%;
+}
+
+.menu {
+    position: absolute;
+    width: 220px;
+    padding-left: 10px;
+}
+.content {
+    margin-left: 220px;
+}
+.measures {
+    margin-left: 15px;
+}
+.measures li {
+    margin-bottom: 20px;
+}
+.measures li h3 {
+    margin-top: 5px;
+}
+.ydrop1, .ydrop2 {
+    border: 2px solid #ddd;
+    -ms-border-radius: 30px;
+    border-radius: 30px;
+    margin-top: 20px;
+    padding: 40px 0;
+    text-align: center;
+    color: #555;
+}
+.ydrop1 h4, .ydrop2 h4 {
+    margin: auto;
+    width: 10px;
+}
+.ydrop1.hover, .ydrop2.hover {
+    background-color: #faebd7;
+}
+
+#chart {
+    margin: 10px 20px 0 0;
+}
+.measures .ui-draggable-dragging {
+    border: 2px solid #ccc;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+    -ms-opacity: 0.3;
+    opacity: 0.3;
+    padding: 10px;
+    z-index: 1000;
+}

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>LifeLog</title>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/knockout-3.0.0.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/lodash.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/lifelog.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="css/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
+    <link href="css/lifelog.css" rel="stylesheet" />
+</head>
+    <body>
+        <div class="menu">
+            <h2>Metrics</h2>
+            <ul class="list-unstyled measures">
+                <li data-id="pushups">
+                    <h3>Pushups <small class="unit">(count)</small></h3>
+                    <span class="info">Last recorded 5 days ago</span>
+                </li>
+                <li data-id="running">
+                    <h3>Running <small class="unit">(km)</small></h3>
+                    <span class="info">Last recorded 2 hours ago</span>
+                </li>
+                <li data-id="happiness">
+                    <h3>Happiness <small class="unit">(smileys)</small></h3>
+                    <span class="info">Last recorded 2 days ago</span>
+                </li>
+            </ul>
+        </div>
+        <div class="row content">
+            <div class="col-md-1 ydrop1" data-bind="style: { height: chartHeight() + 'px' }">
+                <h4 data-bind="html: yAxis1Name">Drop metric here</h4>
+            </div>
+            <div class="col-md-10 chart">
+                <div class="chartRow">
+                    <div id="chart"></div>
+                </div>
+            </div>
+            <div class="col-md-1 ydrop2" data-bind="style: { height: chartHeight() + 'px' }">
+                <h4 data-bind="html: yAxis2Name">Drop metric here</h4>
+            </div>
+        </div>
+        <div class="row content">
+            <div class="xdrop"></div>
+        </div>
+    </body>
+</html>
