@@ -30,7 +30,7 @@
         }) : null;
         sum = 0;
         var ya2Data = self.yAxis2() != null ? _.map(self.yAxis2().data, function (v) {
-            var marker = v.marker ? { symbol: 'url(' + v.marker + ')' } : null;;
+            var marker = v.marker ? { symbol: 'url(' + v.marker + ')' } : null;
             return { x: moment(v.date), y: self.yAxis2Cumulative() ? sum += v.value : v.value, marker: marker };
         }) : null;
 
@@ -39,13 +39,17 @@
             series.push({
                 name: self.yAxis1().name + (self.yAxis1Cumulative() ? ' (cumulative)' : ''),
                 data: ya1Data,
-                yAxis: 0
+                lineWidth: self.yAxis1().lineWidth != null ? self.yAxis1().lineWidth : 2,
+                yAxis: 0,
+                type: self.yAxis1().type
             });
         if (self.yAxis2() != null)
             series.push({
                 name: self.yAxis2().name + (self.yAxis2Cumulative() ? ' (cumulative)' : ''),
                 data: ya2Data,
-                yAxis: 1
+                lineWidth: self.yAxis2().lineWidth != null ? self.yAxis2().lineWidth : 2,
+                yAxis: 1,
+                type: self.yAxis2().type
             });
 
         self.chart = $('#chart').highcharts({
@@ -64,11 +68,17 @@
             },
             yAxis: [
                 {
-                    title: { text: self.yAxis1() != null ? self.yAxis1().name : '' }
+                    title: { text: self.yAxis1() != null ? self.yAxis1().name : '' },
+                    labels: { enabled: self.yAxis1() != null ? self.yAxis1().labels : true },
+                    min: self.yAxis1() != null && self.yAxis1().min ? self.yAxis1().min : null,
+                    max: self.yAxis1() != null && self.yAxis1().max ? self.yAxis1().max : null
                 },
                 {
                     opposite: true,
-                    title: { text: self.yAxis2() != null ? self.yAxis2().name : ''}
+                    title: { text: self.yAxis2() != null ? self.yAxis2().name : '' },
+                    labels: { enabled: self.yAxis2() != null ? self.yAxis2().labels : true },
+                    min: self.yAxis2() != null && self.yAxis2().min ? self.yAxis2().min : null,
+                    max: self.yAxis2() != null && self.yAxis2().max ? self.yAxis2().max : null
                 }
             ],
             series: series
@@ -82,21 +92,38 @@
             revert: 'invalid'
         });
         $('.ydrop1').droppable({
+            tolerance: 'touch',
             hoverClass: 'hover',
             drop: function(e, u) {
                 self.setY1($(u.draggable).data('id'));
+                self.setNullDrag('.ydrop1', self.setY1);
             }
         });
         $('.ydrop2').droppable({
+            tolerance: 'touch',
             hoverClass: 'hover',
             drop: function (e, u) {
                 self.setY2($(u.draggable).data('id'));
+                self.setNullDrag('.ydrop2', self.setY2);
+            }
+        });
+    };
+
+    self.setNullDrag = function(cls, clb) {
+        $(cls).draggable({
+            helper: 'clone',
+            stop: function(e, ui) {
+                if (Math.abs($(cls).position().top - ui.position.top) > 50 || Math.abs($(cls).position().left - ui.position.left) > 50) {
+                    clb(null);
+                }
             }
         });
     };
 
     self.setY1 = function(id) {
-        if (id == 'pushups') {
+        if (id == null) {
+            self.yAxis1(null);
+        } else if (id == 'pushups') {
             self.yAxis1(pushupData);
         } else if (id == 'running') {
             self.yAxis1(runningData);
@@ -106,7 +133,9 @@
     };
 
     self.setY2 = function (id) {
-        if (id == 'pushups') {
+        if (id == null) {
+            self.yAxis2(null);
+        } else if (id == 'pushups') {
             self.yAxis2(pushupData);
         } else if (id == 'running') {
             self.yAxis2(runningData);
@@ -126,4 +155,5 @@ $(function() {
     ko.applyBindings(window.viewModel);
 
     window.viewModel.initialize();
+    window.viewModel.setNullDrag('.ydrop1', window.viewModel.setY1);
 });
