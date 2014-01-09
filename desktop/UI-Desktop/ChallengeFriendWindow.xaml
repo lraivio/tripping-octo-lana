@@ -1,0 +1,25 @@
+﻿<Window x:Class="UI_Desktop.ChallengeFriendWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Challenge friend" Height="352" Width="360" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <GroupBox Header="Find friend" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="116" Width="332">
+            <Grid HorizontalAlignment="Left" Width="320" Margin="0,0,0,-1">
+                <Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="53,12,0,0" TextWrapping="Wrap" Text="mock2@mock.com" VerticalAlignment="Top" Width="204"/>
+                <Image HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="40" Margin="53,48,0,-14" Source="avatar-80x80.png"/>
+                <Label Content="Mock User2" HorizontalAlignment="Left" Margin="98,48,0,0" VerticalAlignment="Top" FontSize="16"/>
+            </Grid>
+        </GroupBox>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="267,290,0,0" VerticalAlignment="Top" Width="75" IsCancel="True"/>
+        <Button Content="Challenge!" HorizontalAlignment="Left" Margin="187,290,0,0" VerticalAlignment="Top" Width="75" IsDefault="True"/>
+        <GroupBox Header="Select metric" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top" Height="154" Width="332">
+            <Grid HorizontalAlignment="Left" Width="320" Margin="0,0,0,-1">
+                <Label Content="Metric" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+                <ComboBox HorizontalAlignment="Left" Margin="59,14,0,0" VerticalAlignment="Top" Width="212"/>
+                <Label Content="Other details... Lorem ipsum..." HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Window>

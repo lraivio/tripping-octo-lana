@@ -1,0 +1,90 @@
+﻿<Window x:Class="UI_Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:UI_Desktop"
+        Title="MainWindow" Height="661" Width="966">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static local:MainWindow.HomeCommand}" Executed="HomeCommandExecuted"></CommandBinding>
+        <CommandBinding Command="{x:Static local:MainWindow.ReportCommand}" Executed="Button_Click"></CommandBinding>
+        <CommandBinding Command="{x:Static local:MainWindow.CalendarCommand}" Executed="Button_Click_5"></CommandBinding>
+        <CommandBinding Command="{x:Static local:MainWindow.NewMetricCommand}" Executed="Button_Click_2"></CommandBinding>
+    </Window.CommandBindings>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid MinWidth="700">
+            <GroupBox x:Name="ProfileGroup" Header="Profile" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Height="282" Width="207">
+                <Grid>
+                    <Image x:Name="ProfileImage" HorizontalAlignment="Left" Height="120" VerticalAlignment="Top" Width="120" Margin="10,10,0,0" Source="avatar-80x80.png"/>
+                    <Button x:Name="EditProfile" Content="Edit profile" Margin="0,0,10,10" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75"/>
+                    <Label Content="Name" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Nickname" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Mock user" HorizontalAlignment="Left" Margin="78,135,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Mock89" HorizontalAlignment="Left" Margin="78,161,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Email" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top"/>
+                    <Label Content="mock@mock.com&#xD;&#xA;" HorizontalAlignment="Left" Margin="78,187,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox x:Name="MetricsGroup" Header="Metrics" Margin="222,67,321,0" MinWidth="400" VerticalAlignment="Top" Height="340">
+                <DockPanel LastChildFill="False">
+                    <Expander Header="Pushups" VerticalAlignment="Top" Height="129" DockPanel.Dock="Top" IsExpanded="True">
+                        <Grid Height="100">
+                            <Label Content="Count" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" FontSize="16"/>
+                            <Label Content="470" HorizontalAlignment="Left" Margin="82,3,0,0" VerticalAlignment="Top" FontSize="16"/>
+                            <Label Content="Days" Margin="0,23,168,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="35"/>
+                            <Label Content="16" Margin="0,23,125,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="23"/>
+                            <Label Content="Period" Margin="0,3,153,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="50"/>
+                            <Label Content="15.12.2013 - 10.1.2014" Margin="0,3,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="138"/>
+                            <Button Content="View report" Margin="0,0,10,10" FontSize="14" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="103" Click="Button_Click_6"/>
+                            <Button Content="Edit" Margin="0,0,118,10" FontSize="14" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="70" Click="Button_Click_3"/>
+                            <Button Content="Delete metric" Margin="0,0,295,10" FontSize="14" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="96"/>
+                            <GridSplitter HorizontalAlignment="Stretch" Height="3" Margin="10,97,10,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Expander>
+                    <Expander Header="Running" VerticalAlignment="Top" Height="129" DockPanel.Dock="Top" IsExpanded="True">
+                        <Grid Height="100">
+                            <Label Content="km" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" FontSize="16"/>
+                            <Label Content="39" HorizontalAlignment="Left" Margin="82,3,0,0" VerticalAlignment="Top" FontSize="16"/>
+                            <Label Content="Days" Margin="0,23,168,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="35"/>
+                            <Label Content="5" Margin="0,23,125,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="23"/>
+                            <Label Content="Period" Margin="0,3,153,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="50"/>
+                            <Label Content="01.01.2014 - 13.1.2014" Margin="0,3,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="138"/>
+                            <Button Content="View report" Margin="0,0,10,8" FontSize="14" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="103" Click="Button_Click_6"/>
+                            <Button Content="Edit" Margin="0,0,118,8" FontSize="14" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="70" Click="Button_Click_3"/>
+                            <Button Content="Delete metric" Margin="0,0,295,8" FontSize="14" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="96"/>
+                        </Grid>
+                    </Expander>
+                    <Grid VerticalAlignment="Top" Height="129" DockPanel.Dock="Top" >
+                        <Button Content="Add new metric" Margin="119,13,120,0" VerticalAlignment="Top" Height="44" Click="Button_Click_2" />
+                        
+                        <GridSplitter HorizontalAlignment="Stretch" Height="3" Margin="10,0" VerticalAlignment="Top"/>
+                    </Grid>
+                    
+                </DockPanel>
+            </GroupBox>
+            <ToolBar VerticalAlignment="Top" Height="57">
+                <Button Content="Home" Height="52" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
+                <Button Content="Reports" Height="52" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+                <Button Content="Calendar" Height="52" VerticalAlignment="Top" Width="75" Click="Button_Click_5"/>
+            </ToolBar>
+            <GroupBox x:Name="ChallengesGroup" Header="Challenges" Margin="0,67,10,0" VerticalAlignment="Top" Height="213" HorizontalAlignment="Right" Width="306">
+                <DockPanel LastChildFill="False">
+                    <Expander Header="Incoming challenge" VerticalAlignment="Top" Height="129" DockPanel.Dock="Top" IsExpanded="True">
+                        <Grid Height="100" Margin="0,0,8,0">
+                            <Label Content="Mock User2 challenged you!" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Margin="55,1,-18,0"/>
+                            <Label Content="1500 pushups in 1 week" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="55,29,0,0"/>
+                            <Image HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="40" Margin="10,10,0,0" Source="avatar-80x80.png"/>
+                            <Button Content="Accept" Margin="0,0,10,10" FontSize="14" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="70"/>
+                            <Button Content="Reject" Margin="0,0,85,10" FontSize="14" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="70"/>
+                        </Grid>
+                    </Expander>
+
+                    <Grid VerticalAlignment="Top" Height="129" DockPanel.Dock="Top">
+                        <GridSplitter HorizontalAlignment="Stretch" Height="3" Margin="10,0" VerticalAlignment="Top"/>
+                        <Button Content="Challenge friend" Margin="20,13,20,0" VerticalAlignment="Top" Height="44" Click="Button_Click_1" />
+                    </Grid>
+                </DockPanel>
+            </GroupBox>
+            <Image x:Name="CalendarImage" Margin="10,67,0,0" Source="calendar-crop.jpg" Stretch="Fill" Visibility="Hidden" Width="600" HorizontalAlignment="Left" Height="500" VerticalAlignment="Top"/>
+            <Image x:Name="ReportImage" Margin="10,67,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="600" Height="500" Source="reportcrop.jpg" Visibility="Hidden" Stretch="Fill"/>
+        </Grid>
+    </ScrollViewer>
+</Window>
